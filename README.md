@@ -17,12 +17,12 @@ Write an ETL pipeline that transfers data from json files into tables in Postgre
 4. Sparkify Database ERD
 5. ReadMe
 ## Schema
-![ERD](SparkifyERD.png)
+![ERD](Sparkify_ERD.png)
 ## Running 
 Pre-requisites
     - Python 3
     - PostgresSQL
-1. In the workspace, open DMP.ipynb
+1. In the Udacity workspace, open DMP.ipynb
 2. run ```%run etl.py``` 
 
 ## Validation
