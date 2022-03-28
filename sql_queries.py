@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS songs
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time
   (
-     start_time TIMESTAMP,
+     start_time TIMESTAMP PRIMARY KEY,
      hour       INT,
      day        INT,
      week       INT,
@@ -68,7 +68,8 @@ CREATE TABLE IF NOT EXISTS songplays
      user_agent  VARCHAR,
      CONSTRAINT fk_userid FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
      CONSTRAINT fk_songid FOREIGN KEY(song_id) REFERENCES songs(song_id) ON DELETE CASCADE ON UPDATE CASCADE,
-     CONSTRAINT fk_artistid FOREIGN KEY(artist_id) REFERENCES artists(artist_id) ON DELETE CASCADE ON UPDATE CASCADE
+     CONSTRAINT fk_artistid FOREIGN KEY(artist_id) REFERENCES artists(artist_id) ON DELETE CASCADE ON UPDATE CASCADE,
+     CONSTRAINT fk_starttime FOREIGN KEY(start_time) REFERENCES time(start_time) ON DELETE CASCADE ON UPDATE CASCADE
   ) 
 """)
 
