@@ -17,7 +17,7 @@ Write an ETL pipeline that transfers data from json files into tables in Postgre
 4. Sparkify Database ERD
 5. ReadMe
 ## Schema
-![ERD](Sparkify_ERD.png)
+![ERD](SparkifyERD.png)
 ## Running 
 Pre-requisites
     - Python 3
