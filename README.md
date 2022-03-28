@@ -19,11 +19,8 @@ Write an ETL pipeline that transfers data from json files into tables in Postgre
 ## Schema
 ![ERD](Sparkify_ERD.png)
 ## Running 
-Pre-requisites
-    - Python 3
-    - PostgresSQL
-1. In the Udacity workspace, open DMP.ipynb
-2. run ```%run etl.py``` 
-
+Note: Need Python 3, PostgresSQL, and/or Jupyter Notebook
+1. In the Udacity workspace, open DMP.ipynb and run ```%run etl.py``` or
+2. In the Udacity workspace, open up terminal and run ```python etl.py```
 ## Validation
 Run all cells in test.ipynb.
