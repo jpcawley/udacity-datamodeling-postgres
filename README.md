@@ -7,16 +7,17 @@ Write an ETL pipeline that transfers data from json files into tables in Postgre
 1. Data
     - data/song_data: contains all files for song data
     - data/log_data: contains all files for log data
-3. Python files
+2. Python files
     - create_tables.py: Python file with functions to create and drop tables
     - sql_queries.py: Python file with drop, create, and insert SQL queries
     - etl.py: Python file that builds out the ETL process
-5. Jupyter Notebooks
+3. Jupyter Notebooks
     - DMP.ipynb: Notebook to run create_tables.py and etl.py
     - test.ipynb: Notebook with test code to run sanity checks throught ETL development process
-6. ReadMe
+4. Sparkify Database ERD
+5. ReadMe
 ## Schema
-![ERD](C:/Users/n1528743/Downloads/Sparkify_ERD.png)
+![ERD](Sparkify_ERD.png)
 ## Running 
 Pre-requisites
     - Python 3
