@@ -8,21 +8,6 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 
 # CREATE TABLES
 
-songplay_table_create = ("""
-CREATE TABLE IF NOT EXISTS songplays
-  (
-     songplay_id SERIAL PRIMARY KEY,
-     start_time  TIMESTAMP NOT NULL,
-     user_id     INT NOT NULL,
-     level       VARCHAR,
-     song_id     VARCHAR,
-     artist_id   VARCHAR,
-     session_id  INT,
-     location    VARCHAR,
-     user_agent  VARCHAR
-  ) 
-""")
-
 user_table_create = ("""
 CREATE TABLE IF NOT EXISTS users
   (
@@ -30,18 +15,7 @@ CREATE TABLE IF NOT EXISTS users
      first_name VARCHAR,
      last_name  VARCHAR,
      gender     VARCHAR(1),
-     level      VARCHAR
-  ) 
-""")
-
-song_table_create = ("""
-CREATE TABLE IF NOT EXISTS songs
-  (
-     song_id   VARCHAR PRIMARY KEY,
-     title     VARCHAR NOT NULL,
-     artist_id VARCHAR,
-     year      INT,
-     duration  NUMERIC NOT NULL
+     level      VARCHAR 
   ) 
 """)
 
@@ -56,6 +30,17 @@ CREATE TABLE IF NOT EXISTS artists
   ) 
 """)
 
+song_table_create = ("""
+CREATE TABLE IF NOT EXISTS songs
+  (
+     song_id   VARCHAR PRIMARY KEY,
+     title     VARCHAR NOT NULL,
+     artist_id VARCHAR,
+     year      INT,
+     duration  NUMERIC NOT NULL
+  ) 
+""")
+
 time_table_create = ("""
 CREATE TABLE IF NOT EXISTS time
   (
@@ -63,9 +48,27 @@ CREATE TABLE IF NOT EXISTS time
      hour       INT,
      day        INT,
      week       INT,
-     month      VARCHAR,
+     month      INT,
      year       INT,
-     weekday    VARCHAR
+     weekday    INT
+  ) 
+""")
+
+songplay_table_create = ("""
+CREATE TABLE IF NOT EXISTS songplays
+  (
+     songplay_id SERIAL PRIMARY KEY,
+     start_time  TIMESTAMP NOT NULL,
+     user_id     INT NOT NULL,
+     level       VARCHAR,
+     song_id     VARCHAR,
+     artist_id   VARCHAR,
+     session_id  INT,
+     location    VARCHAR,
+     user_agent  VARCHAR,
+     CONSTRAINT fk_userid FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+     CONSTRAINT fk_songid FOREIGN KEY(song_id) REFERENCES songs(song_id) ON DELETE CASCADE ON UPDATE CASCADE,
+     CONSTRAINT fk_artistid FOREIGN KEY(artist_id) REFERENCES artists(artist_id) ON DELETE CASCADE ON UPDATE CASCADE
   ) 
 """)
 
@@ -133,13 +136,11 @@ SELECT s.song_id, a.artist_id
 FROM songs s 
 JOIN artists a 
 ON s.artist_id = a.artist_id
-WHERE s.title = %s AND a.name = %s AND s.duration = %s
+WHERE s.title = %s 
+    AND a.name = %s 
+    AND s.duration = %s
 """)
-# WHERE
-#    s.title = %s
-#    AND a.name = %s
-#    AND s.duration = %s
 # QUERY LISTS
 
-create_table_queries = [songplay_table_create, user_table_create, song_table_create, artist_table_create, time_table_create]
-drop_table_queries = [songplay_table_drop, user_table_drop, song_table_drop, artist_table_drop, time_table_drop]
+create_table_queries = [user_table_create, artist_table_create, song_table_create, time_table_create, songplay_table_create]
+drop_table_queries = [user_table_drop, artist_table_drop, song_table_drop, time_table_drop, songplay_table_drop]
