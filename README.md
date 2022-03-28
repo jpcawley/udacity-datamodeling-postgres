@@ -15,6 +15,8 @@ Write an ETL pipeline that transfers data from json files into tables in Postgre
     - DMP.ipynb: Notebook to run create_tables.py and etl.py
     - test.ipynb: Notebook with test code to run sanity checks throught ETL development process
 6. ReadMe
+## Schema
+![ERD](C:/Users/n1528743/Downloads/Sparkify_ERD.png)
 ## Running 
 Pre-requisites
     - Python 3
