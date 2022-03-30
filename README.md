@@ -8,7 +8,7 @@ Write an ETL pipeline that transfers data from json files into tables in Postgre
     - data/song_data: contains all files for song data
     - data/log_data: contains all files for log data
 2. Python files
-    - create_tables.py: Python file with functions to create and drop tables
+    - create_tables.py: Python file with functions to create and drop the database and its tables
     - sql_queries.py: Python file with drop, create, and insert SQL queries
     - etl.py: Python file that builds out the ETL process
 3. Jupyter Notebooks
